@@ -1,0 +1,105 @@
+<section class="content">
+    <div class="container-fluid">
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            DATA DAERAH
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Daerah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Daerah</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Bandung Utara</td>
+                                        <th>
+                                            <a href="#"><button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float">
+                                                <i class="material-icons">mode_edit</i>
+                                            </button></a> | <a href="#"><button type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float">
+                                                <i class="material-icons">delete</i>
+                                            </button></a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Bandung Barat</td>
+                                        <th>
+                                            <div class="btn-group" role="group">
+                                                <button id="btnGroupVerticalDrop1" type="button" class="btn bg-teal waves-effect dropdown-toggle" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Pilih Aksi <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1">
+                                                    <li><a href="javascript:void(0);">Ubah</a></li>
+                                                    <li><a href="javascript:void(0);">Hapus</a></li>
+                                                </ul>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Bandung Timur</td>
+                                        <th>
+                                            <a href="#"><button type="button" class="btn btn-primary waves-effect">
+                                                <i class="material-icons">mode_edit</i>
+                                            </button></a> | <a href="#"><button type="button" class="btn btn-danger waves-effect">
+                                                <i class="material-icons">delete</i>
+                                            </button></a>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Basic Examples -->
+    </div>
+</section>
+
+<!-- Default Size -->
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="defaultModalLabel">Tambah Data Daerah</h4>
+            </div>
+            <div class="modal-body">
+                <div class="body">
+                    <form>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" id="namadaerah" class="form-control" required="">
+                                <label class="form-label">Nama Daerah</label>
+                            </div>
+                        </div>
+                        <br>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-link waves-effect">Simpan</button>
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Tutup</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

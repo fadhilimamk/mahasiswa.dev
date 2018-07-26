@@ -1,0 +1,88 @@
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-sm-offset-0 col-md-offset-2">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            DATA KEHADIRAN
+                        </h2>
+                    </div>
+                    <div class="body text-center">
+                        <?php if (sizeof($data) == 0):?>
+                            Belum ada data!
+                        <?php else :?>
+                        <div class="table-responsive">
+                            <table id="tabel-kehadiran" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>L/P</th>
+                                    <th>Daerah</th>
+                                    <th>Desa</th>
+                                    <th>Kelompok</th>
+                                    <th>Waktu</th>
+                                    <th>Keterangan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>L/P</th>
+                                    <th>Daerah</th>
+                                    <th>Desa</th>
+                                    <th>Kelompok</th>
+                                    <th>Waktu</th>
+                                    <th>Keterangan</th>
+                                    <th>Aksi</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                <?php foreach ($data as $peserta) : ?>
+                                <tr>
+                                    <td class="text-left"><?=$peserta->nama?></td>
+                                    <td><?=$peserta->jeniskelamin?></td>
+                                    <td><?=$peserta->namadaerah?></td>
+                                    <td><?=$peserta->namadesa?></td>
+                                    <td><?=$peserta->namakelompok?></td>
+                                    <td><?=date("j F, H:i", strtotime($peserta->time))?></td>
+                                    <td><?= strtotime($peserta->time) > $waktumulai ?
+                                        "<span class='badge bg-red col-white'>late</span>" :
+                                        "<span class='badge bg-green col-white'>ontime</span>"?></td>
+                                    <td><a href="/kehadiran/delete?id=<?=$peserta->id?>">hapus</a></td>
+                                </tr>
+                                <?php endforeach;?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php endif ;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- JS file -->
+<?php if (isset($scripts)): ?>
+<?php foreach($scripts as $script): ?>
+<script src="<?=$script?>"></script>
+<?php endforeach; ?>
+<?php endif; ?>
+
+<script>
+    $(document).ready(function () {
+        $('#tabel-kehadiran').DataTable({
+            dom: 'Bfrtip',
+            responsive: true,
+            aaSorting:[],
+            pageLength: 20,
+            buttons: [
+                'copy', 'excel', 'pdf'
+            ]
+        });
+    });
+</script>

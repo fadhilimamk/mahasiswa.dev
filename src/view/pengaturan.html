@@ -1,0 +1,76 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>PENGATURAN</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            EDIT PROFIL
+                            <small>Atur profil anda disini</small>
+                        </h2>
+                    </div>
+                    <form action="/main/acara/edit" method="post">
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12 text-center">
+                                    <div class="image">
+                                        <img src="/img/empty_profile.png" style="width: 20%" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row clearfix">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="nama" type="text" class="form-control" value="">
+                                            <label class="form-label">Nama Lengkap</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="email" type="email" class="form-control" value="">
+                                            <label class="form-label">Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="waktumulai" type="text" class="datetimepicker form-control" value="">
+                                            <label class="form-label">Kata Sandi</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-md-4">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="waktuselesai" type="text" class="datetimepicker form-control" value="">
+                                            <label class="form-label">Konfirmasi Kata Sandi</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix text-right">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <input type="submit" class="btn btn-primary m-t-15 waves-effect" value="SIMPAN"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,89 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>EDIT ACARA</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            DETAIL ACARA
+                            <small>Ganti detail acara pada form ini</small>
+                        </h2>
+                    </div>
+                    <form action="/main/acara/edit" method="post">
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12 text-center">
+                                    <img src="/img/logo.jpeg" style="width: 30%">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row clearfix">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="nama" type="text" class="form-control" value="<?=$acara->namaacara?>">
+                                            <label class="form-label">Nama Acara</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="tempat" type="text" class="form-control" value="<?=$acara->tempat?>">
+                                            <label class="form-label">Tempat</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-2">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input id="waktumulai" name="waktumulai" type="text" class="datetimepicker form-control" value="<?=$acara->waktumulai?>">
+                                            <label class="form-label">Waktu Mulai</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-8 col-md-4">
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input id="waktuselesai" name="waktuselesai" type="text" class="datetimepicker form-control" value="<?=$acara->waktuselesai?>">
+                                            <label class="form-label">Waktu Selesai</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix text-right">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <input type="submit" class="btn btn-primary m-t-15 waves-effect" value="SIMPAN"/>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="/plugins/momentjs/moment.js"></script>
+<script src="/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var timePickerOptions = {
+            format : 'dddd DD MMMM YYYY, HH:mm',
+            lang: 'id',
+        };
+        $("#waktumulai").bootstrapMaterialDatePicker(timePickerOptions);
+        $("#waktuselesai").bootstrapMaterialDatePicker(timePickerOptions);
+    });
+
+</script>

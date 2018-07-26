@@ -1,0 +1,190 @@
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>BERANDA - STATISTIK</h2>
+            </div>
+
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="info-box bg-blue hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">people</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">TOTAL</div>
+                            <div class="number count-to" data-from="0" data-to="<?=$jmlTotal?>" data-speed="30" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="info-box bg-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">face</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">LAKI-LAKI</div>
+                            <div class="number count-to" data-from="0" data-to="<?=$jmlLaki?>" data-speed="30" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="info-box bg-pink hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">face</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">PEREMPUAN</div>
+                            <div class="number count-to" data-from="0" data-to="<?=$jmlPerempuan?>" data-speed="30" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Widgets -->
+
+            <!-- Widgets -->
+            <div class="row clearfix">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-6">
+                    <div class="info-box bg-indigo hover-expand-effect">
+                        <div class="content">
+                            <div class="text">BANDUNG UTARA</div>
+                            <div class="number"><?=$jmlBandara?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="info-box bg-deep-orange hover-expand-effect">
+                        <div class="content">
+                            <div class="text">BANDUNG TIMUR</div>
+                            <div class="number"><?=$jmlTimur?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="info-box bg-cyan hover-expand-effect">
+                        <div class="content">
+                            <div class="text">BANDUNG SELATAN 1</div>
+                            <div class="number"><?=$jmlSelatan1?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="info-box bg-deep-purple hover-expand-effect">
+                        <div class="content">
+                            <div class="text">BANDUNG SELATAN 2</div>
+                            <div class="number"><?=$jmlSelatan2?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="info-box bg-light-blue hover-expand-effect">
+                        <div class="content">
+                            <div class="text">BANDUNG BARAT</div>
+                            <div class="number"><?=$jmlBarat?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Widgets -->
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                    <div class="card">
+                        <div class="header">
+                            <h2>KEDATANGAN TERAKHIR</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Sembunyikan</a></li>
+                                        <li><a href="javascript:void(0);">Detail</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Lengkap</th>
+                                            <th>Desa</th>
+                                            <th>Daerah</th>
+                                            <th>Waktu</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i = 1?>
+                                        <?php foreach($lastAttendence as $data): ?>
+                                        <tr>
+                                            <td><?=$i++?></td>
+                                            <td><?=$data->nama?></td>
+                                            <td><?=$data->namadesa?></td>
+                                            <td><span class="label bg-blue"><?=$data->namadaerah?></span></td>
+                                            <td><?=date("H:i", strtotime($data->time))?></td>
+                                            <td><?= strtotime($data->time) > $waktumulai ?
+                                                "<span class='badge bg-red col-white'>late</span>" :
+                                                "<span class='badge bg-green col-white'>ontime</span>"?></td>
+                                        </tr>
+                                        <?php endforeach;?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+                <!-- Browser Usage -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="header">
+                            <h2>RASIO KEDATANGAN</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Sembunyikan</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div id="donut_chart" class="dashboard-donut-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Browser Usage -->
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        var jmlBandara = "<?php echo $jmlBandara?>";
+        var jmlTimur = "<?php echo $jmlTimur?>";
+        var jmlSelatan1 = "<?php echo $jmlSelatan1?>";
+        var jmlSelatan2 = "<?php echo $jmlSelatan2?>";
+        var jmlBarat = "<?php echo $jmlBarat?>";
+        var jmlTotal = "<?php echo $jmlTotal?>";
+    </script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="/plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="/plugins/raphael/raphael.min.js"></script>
+    <script src="/plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="/plugins/chartjs/Chart.bundle.js"></script>
+
+    <script src="/js/main.js"></script>

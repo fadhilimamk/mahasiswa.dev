@@ -1,0 +1,48 @@
+<body class="login-page">
+    <div class="login-box">
+        <div class="card">
+            <div class="body">
+                <form id="sign_in" action="/main/login" method="POST">
+                    <div class="align-center">
+                            <img src="/img/logo.jpeg" style="width:80%"/>
+                    </div>
+                    <hr>
+                    <div class="msg">
+                        <?php if ($msg == ""):?>
+                            Masuk ke dalam sistem
+                        <?php else :?>
+                            <span class="font-bold col-red"><?=$msg?></span>
+                        <?php endif;?>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" placeholder="Kata Sandi" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 p-t-5">
+                        </div>
+                        <div class="col-xs-4">
+                            <input class="btn btn-block bg-pink waves-effect" type="submit" value="MASUK">
+                        </div>
+                    </div>
+                    <div class="row m-t-15 m-b--20">
+                        <div class="col-xs-8">
+                            <a href="/register">Belum punya akun? daftar!</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

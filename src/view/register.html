@@ -1,0 +1,54 @@
+<body class="signup-page">
+    <div class="signup-box">
+        <div class="card">
+            <div class="body">
+                <form id="sign_up" action="/main/register" method="POST">
+                    <div class="align-center">
+                            <img src="/img/logo.jpeg" style="width:80%"/>
+                    </div>
+                    <hr>
+                    <div class="msg">Buat akun baru</div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="Alamat Email" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Kata Sandi" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Konfirmasi Kata Sandi" required>
+                        </div>
+                    </div>
+                    <br>
+    
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">DAFTAR</button>
+    
+                    <div class="m-t-25 m-b--5 align-center">
+                        <a href="/login">Anda sudah memiliki akun?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

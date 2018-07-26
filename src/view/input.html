@@ -1,0 +1,275 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>INPUT KEHADIRAN</h2>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-md-12 align-center center-block text-center">
+                <img src="/img/logo.jpeg" width="200" style="margin-bottom: -50px"><br>
+                <small class="col-black"><?=$acara->tempat?> | <?=$acara->waktumulai?> | <?=$acara->jammulai?> - <?=$acara->jamselesai?></small>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-md-offset-3">
+                <div class="form-group">
+                    <div class="form-line col-black">
+                        <input type="text" class="input-kehadiran form-control" placeholder="Nama Lengkap"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 align-center center-block text-center">
+                <button id="btn-add-peserta" type="button" class="btn bg-grey btn-lg waves-effect" data-toggle="modal" data-target="#newPesertaModal" onclick="showModal()">TAMBAH DATA</button>
+                &emsp;
+                <button id="btn-input-kehadiran" type="button" class="btn bg-grey btn-lg waves-effect">INPUT KEHADIRAN</button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12 col-sm-offset-0 col-md-offset-3">
+                <div class="card" style="background-color: #4DB6AC">
+                    <div class="body text-center col-white">
+                        Total : <span id="rekap-total">0</span> &emsp;|&emsp;
+                        Laki-laki : <span id="rekap-lakilaki">0</span> &emsp;|&emsp;
+                        Perempuan : <span id="rekap-perempuan">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="modal fade" id="newPesertaModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/main/input/kehadiran/tambah" method="post" onsubmit="return validateForm()">
+            <div class="modal-header">
+                <h4 class="modal-title col-black" id="newPesertaModalLabel">Tambah Peserta Baru</h4>
+            </div>
+            <div class="modal-body">
+                <br>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input id="formNama" name="nama" type="text" class="form-control">
+                                <label class="form-label">Nama Lengkap</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-4">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <select id="formDaerah" name="daerah" class="form-control show-tick">
+                                    <option value="">Pilih Daerah</option>
+                                    <?php foreach($datadaerah as $data):?>
+                                    <option value="<?=$data['id']?>"><?=$data['namadaerah']?></option>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <select id="formDesa" name="desa" class="form-control show-tick">
+                                    <option value="">Pilih Desa</option>
+                                    <?php foreach($datadesa as $data):?>
+                                    <option value="<?=$data['id']?>"><?=$data['namadesa']?></option>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <select id="formKelompok" name="kelompok" class="form-control show-tick">
+                                    <option value="">Pilih Kelompok</option>
+                                    <?php foreach($datakelompok as $data):?>
+                                    <option value="<?=$data['id']?>"><?=$data['namakelompok']?></option>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row clearfix">
+                    <div class="col-sm-4">
+                        <div class="form-group form-float">
+                            Jenis Kelamin
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <div class="form-group form-float">
+                            <input name="jeniskelamin" type="radio" id="jeniskelaminL" value="L" checked />
+                            <label for="jeniskelaminL">Laki-laki</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group form-float">
+                            <input name="jeniskelamin" type="radio" id="jeniskelaminP" value="P"/>
+                            <label for="jeniskelaminP">Perempuan</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <small>
+                    Peserta baru otomatis tercatat dalam data kehadiran
+                </small>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-link waves-effect" value="SIMPAN">
+                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">TUTUP</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/plugins/easy-autocomplete/jquery.easy-autocomplete.js"></script>
+<script src="/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var options = {
+            url: function(phrase) {
+                return "/main/input/peserta?q=" + phrase + "&length=15";
+            },
+            getValue:"nama",
+            template: {
+                type: "custom",
+                method: function(value, item) {
+                    var daerah = (item.daerah) ? "|"+item.daerah : "-";
+                    var desa = (item.desa) ? "|"+item.desa : "-";
+                    var gender = "</span> <br> <i class='fa fa-male col-blue'></i>";
+                    if (item.jeniskelamin === null) {
+                        gender = "";
+                    } else if (item.jeniskelamin === "P") {
+                        gender = "</span> <br> <i class='fa fa-female col-pink'></i>";
+                    }
+                    return "<span class='result-name'>" + value + gender + " | " + item.daerah + " | " + item.desa + " | " + item.kelompok;
+                }
+            },
+            list: {
+                onChooseEvent: function () {
+                    createKehadiran();
+                }
+            }
+        };
+
+        loadRekap();
+
+        $(".input-kehadiran").easyAutocomplete(options);
+        $(".easy-autocomplete").css("width", "100%");
+
+        $(".input-kehadiran").focus();
+
+        $("#btn-input-kehadiran").click(function () {
+            createKehadiran();
+        });
+
+    });
+
+
+    function createKehadiran() {
+        var input = $(".input-kehadiran");
+        var item = input.getSelectedItemData();
+
+        if (item === -1) {
+            input.prop('disabled', false);
+            $.notify({message: 'Pilih peserta terlebih dahulu!'},{placement: {
+                from: "top",
+                align: "right"
+            },offset : {x: 10, y:100}, type: 'warning'});
+            return;
+        }
+
+        input.prop('disabled', true);
+        $.post("/main/input/kehadiran", {
+            acara : 1,
+            id: item.id
+        }, function (data, status) {
+            if (status === "success") {
+                var retrn = JSON.parse(data);
+                if (retrn.status === "success") {
+                    $.notify({message: 'Berhasil mendata ' + retrn.msg},{placement: {
+                        from: "top",
+                        align: "right"
+                    },offset : {x: 10, y:100}, type: 'success'});
+                    loadRekap();
+                } else {
+                    $.notify({message: 'Gagal mendata ' + item.nama + ' ('+retrn.msg+')'},{placement: {
+                        from: "top",
+                        align: "right"
+                    },offset : {x: 10, y:100}, type: 'danger'});
+                }
+            } else {
+                $.notify({message: 'Gagal mendata ' + item.nama},{placement: {
+                    from: "top",
+                    align: "right"
+                },offset : {x: 10, y:100}, type: 'danger'});
+            }
+            input.prop('disabled', false);
+            input.val('');
+        })
+    }
+
+    function loadRekap() {
+        $.get("/main/input/rekap", function (data) {
+            var rekap = JSON.parse(data);
+            $("#rekap-total").text(rekap.total);
+            $("#rekap-lakilaki").text(rekap.lakilaki_count);
+            $("#rekap-perempuan").text(rekap.perempuan_count);
+        });
+    }
+
+    function validateForm() {
+        var nama = $('#formNama').val();
+        var daerah = $('#formDaerah').val();
+        var desa = $('#formDesa').val();
+        var kelompok = $('#formKelompok').val();
+
+        if (nama === "" || daerah === "" || desa === "") {
+            $.notify({message: 'Data peserta harus lengkap!'},{placement: {
+                from: "top",
+                align: "right"
+            },offset : {x: 10, y:100}, type: 'danger'});
+            $('#newPesertaModal').modal('hide');
+            return false;
+        }
+        return true;
+    }
+
+    function showModal() {
+        var nama = $('.input-kehadiran').val()
+        $('#formNama').val(nama);
+    }
+
+
+</script>

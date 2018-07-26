@@ -55,9 +55,9 @@ server {
 ```
 5. Buka aplikasi pada browser. Pada contoh ini, kita dapat mengakses aplikasi MMBR dengan membuka `http://mahasiswa.test` di browser.
 
-[Gb. Tampilan Awal](doc/tampilan_awal.png)
+![Gb. Tampilan Awal](doc/tampilan_awal.png)
 
-[Gb. Tampilan Input](doc/tampilan_input.png)
+![Gb. Tampilan Input](doc/tampilan_input.png)
 
 ## Konfigurasi Database
 Data ada dalam folder `data`, silahkan import `db_mahasiswa.sql` ke dalam mysql di server. Konfigurasi username dan password mysql dapat diubah dalam file `Controller.php`.

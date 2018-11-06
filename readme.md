@@ -63,7 +63,7 @@ server {
 	...
 
 ```
-6. Buka aplikasi pada browser. Pada contoh ini, kita dapat mengakses aplikasi MMBR dengan membuka `http://mahasiswa.test` di browser.
+6. Buka aplikasi pada browser. Login dengan akun `admin@mmbr.com` dan password `rahasia`. Pada contoh ini, kita dapat mengakses aplikasi MMBR dengan membuka `http://mahasiswa.test` di browser.
 
 ![Gb. Tampilan Awal](doc/tampilan_awal.png)
 

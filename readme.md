@@ -34,7 +34,7 @@ server {
 	location / {
 		# Pastikan ada /index.php?$args karena semua request dihandle oleh file tersebut!
         # ?$args digunakan untuk memastikan semua atribut get dapat dibaca oleh aplikasi!
-		try_files $uri $uri/ /index.php?$args;
+		try_files $uri $uri/ /index.php?$query_string;
 	}
 
 	# pass PHP scripts to FastCGI server
@@ -42,7 +42,7 @@ server {
 		include snippets/fastcgi-php.conf;
 	
 		# With php-fpm (or other unix sockets):
-		fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
+		fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
 	}
 
 	# deny access to .htaccess files, if Apache's document root
@@ -53,7 +53,17 @@ server {
 	}
 }
 ```
-5. Buka aplikasi pada browser. Pada contoh ini, kita dapat mengakses aplikasi MMBR dengan membuka `http://mahasiswa.test` di browser.
+5. Pastikan pada komputer yang digunakan sudah terinstal mysql, kemudian persiapkan struktur database yang akan digunakan oleh aplikasi ini. Template struktur database sudah disediakan pada file `data/db_mahasiswa.sql`. Import struktur tersebut ke mysql, kemudian atur konfigurasi username dan password basis data pada file `src/controller/Controller.php`.
+```
+	...
+	$dbhost = 'localhost';
+	$dbuser = 'isi_username_akun_mysql';
+	$dbpass = 'isi_password_akun_mysql';
+	$dbname = 'db_mahasiswa';
+	...
+
+```
+6. Buka aplikasi pada browser. Pada contoh ini, kita dapat mengakses aplikasi MMBR dengan membuka `http://mahasiswa.test` di browser.
 
 ![Gb. Tampilan Awal](doc/tampilan_awal.png)
 

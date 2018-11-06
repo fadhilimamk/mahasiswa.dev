@@ -9,8 +9,8 @@ class DB {
     private function __construct() {
 
         $dbhost = 'localhost';
-        $dbuser = 'root';
-        $dbpass = '';
+        $dbuser = 'phpmyadmin';
+        $dbpass = 'rahasia';
         $dbname = 'db_mahasiswa';
 
         try {
